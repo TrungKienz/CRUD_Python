@@ -1,8 +1,8 @@
-from app.model.model_base import BaseModel
+from app.model.model_base import BareBaseModel
 from sqlalchemy import Column, DateTime, String, Boolean
 from datetime import datetime
 
-class Job(BaseModel):
+class Job(BareBaseModel):
     __tablename__ = "todolist"
 
     title = Column(String)

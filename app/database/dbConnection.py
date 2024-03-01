@@ -3,8 +3,8 @@ from app.core.config import setting
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine(setting.SQL_DATABASE_URL, pool_pre_ping=True)
-SessionLocal = sessionmaker(autocommit = False, autoflush=False, bind=engine)
+engine = create_engine(setting.DB_URL, pool_pre_ping=True)
+SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind=engine)
 
 def get_db() -> Generator:
     try:

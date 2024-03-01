@@ -2,10 +2,21 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
-class JobItem(BaseModel):
+class JobBase(BaseModel):
     title: str
-    begin_at: datetime
-    end_at: datetime
-    status: Optional[bool] = False
+
+class JobCreate(JobBase):
+    begin_at: Optional[datetime] =  datetime.now
+    end_at: Optional[datetime] = datetime.now
     content: Optional[str] = None
-    
+
+
+class JobUpdate(JobBase):
+    status: bool
+
+class JobResponce(JobBase):
+    id: int
+    status: bool
+
+    class Config: 
+        from_attributes = True
