@@ -12,11 +12,24 @@ class JobCreate(JobBase):
 
 
 class JobUpdate(JobBase):
+    id: int 
     status: bool
+    content: str
+    end_at: datetime 
+    class Config: 
+        from_attributes = True
 
 class JobResponce(JobBase):
     id: int
     status: bool
 
     class Config: 
+        from_attributes = True
+
+class JobDetail(JobBase):
+    id: int
+    title: str
+    status: bool
+
+    class Config:
         from_attributes = True
